@@ -50,7 +50,9 @@ def test_tant_qu_un_match_non_joue_score_est_inconnu(db,equipe_lion,equipe_shark
 
 
 
-
+def test_un_match_s_affiche_avec_le_score_et_equipe_domicile(db,equipe_lion,equipe_shark):
+    match = Match.objects.create(domicile=equipe_lion,visiteuse=equipe_shark)
+    assert str(match) == f"{match.domicile.nom} : {match.score}"
 
 
 
