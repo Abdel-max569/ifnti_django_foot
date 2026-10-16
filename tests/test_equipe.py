@@ -10,3 +10,29 @@ def test_deux_equipe_ne_pas_avoir_meme_nom(db):
     with pytest.raises(Exception):
         equipe2 = Equipe.objects.create(nom="Lion ravage",promo="L2")
 
+
+def test_une_equipe_s_affiche_avec_son_nom(db):
+    nom_equipe = "Lion ravage"
+    equipe = Equipe.objects.create(nom=nom_equipe,promo="L1")
+    assert nom_equipe == str(equipe)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     
+    
