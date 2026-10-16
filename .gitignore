@@ -1,0 +1,13 @@
+# Environnement et dépendances
+.venv/
+__pycache__/
+*.py[cod]
+
+# Base de données locale
+db.sqlite3
+db.sqlite3-journal
+
+# Outils
+.pytest_cache/
+.ruff_cache/
+.coverage
