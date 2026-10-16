@@ -1,5 +1,4 @@
-from tournoi.models import Equipe
-from tournoi.models import Macth
+from tournoi.models import Equipe,Match
 
 import pytest
 def test_une_equipe_a_un_nom_et_une_promo(db):
@@ -23,13 +22,17 @@ def test_une_equipe_s_affiche_avec_son_nom(db):
 def test_un_match_oppose_equipe_visitese_equipe_recoit_a_une_date_donnee(db):
     equipe_recoit = Equipe.objects.create(nom="Lion ravage",promo="L1")
     equipe_visitese = Equipe.objects.create(nom="Lion ravage",promo="L1")
-    mach = Macth.objects.create(domicile=equipe_recoit,visiteuse=equipe_visitese,date="2024-06-10")
+    mach = Match.objects.create(domicile=equipe_recoit,visiteuse=equipe_visitese,date="2024-06-10")
     assert mach.domicile
     assert mach.visiteuse
     assert mach.date
 
 
 
+
+def test_tant_qu_un_match_non_joue_score_est_inconnu(db):
+    match = Match.objects.create()
+    assert match.score == None
 
 
 
