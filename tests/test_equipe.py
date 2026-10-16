@@ -43,7 +43,7 @@ def test_un_match_oppose_equipe_visitese_equipe_recoit_a_une_date_donnee(db,equi
 
 
 def test_tant_qu_un_match_non_joue_score_est_inconnu(db,equipe_lion,equipe_shark):
-    match = Match.objects.create(domicile=equipe_lion,visiteuse=equipe_shark)
+    match = Match.objects.create(domicile=equipe_lion,visiteuse=equipe_shark,date="2024-06-12")
     assert match.score == None
 
 
