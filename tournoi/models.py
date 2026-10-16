@@ -9,5 +9,5 @@ class Equipe(models.Model):
         verbose_name_plural = "Equipes"
 
     def __str__(self):
-        return self.nom +' '+self.promo
+        return self.nom 
 
