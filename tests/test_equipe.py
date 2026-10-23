@@ -86,6 +86,7 @@ def test_un_match_s_affiche_avec_le_score_et_equipe_domicile(
 
 def test_list_tous_matches_s_affiche(client, db, match1, match2):
     response = client.get("/matches")
+    assert response.status_code == 200
     assert match1.date in response.text
     assert match2.date in response.text
 

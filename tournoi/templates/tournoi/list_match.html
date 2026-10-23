@@ -1,0 +1,11 @@
+{% extends "tournoi/base.html" %}
+{% load static %}
+{% block titre %} Toutes les matchs {% endblock %} 
+{% block contenu %}
+
+{% for match in matchs %}
+
+<h1>{{ match.date |date:"Y-m-d" }}</h1>
+
+{% endfor %}
+{% endblock %}
