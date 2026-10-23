@@ -96,6 +96,8 @@ def test_page_affichage_une_equipe(client,db,equipe_shark):
     assert response.status_code == 200
     assert equipe_shark.nom in response.text
     assert equipe_shark.promo in response.text
+    assert response.text.find("2024-06-20") < response.text.find("2024-06-10")
+    
 
 
 
