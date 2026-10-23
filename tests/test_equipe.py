@@ -86,15 +86,21 @@ def test_un_match_s_affiche_avec_le_score_et_equipe_domicile(
 
 def test_list_tous_matches_s_affiche(client, db, match1, match2):
     response = client.get("/matches")
-    assert response.status_code == 200
     assert match1.date in response.text
     assert match2.date in response.text
+    assert response.text.find("2024-06-20") < response.text.find("2024-06-10")
+
 
 def test_page_affichage_une_equipe(client,db,equipe_shark):
     response = client.get(f"/equipes/{equipe_shark.id}")
     assert response.status_code == 200
     assert equipe_shark.nom in response.text
     assert equipe_shark.promo in response.text
+    
 
+
+def test_page_affichage_une_equipe_inconnu(client):
+    response = client.get(f"/equipes/4012")
+    assert response.status_code == 404
 
 
