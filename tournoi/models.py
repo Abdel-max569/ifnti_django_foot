@@ -11,3 +11,24 @@ class Equipe(models.Model):
     def __str__(self):
         return self.nom 
 
+class Match(models.Model):
+    domicile = models.ForeignKey(
+        Equipe,
+        related_name='equipe_domiciles',
+        on_delete=models.CASCADE,
+    )
+    
+    visiteuse = models.ForeignKey(
+        Equipe,
+        related_name='matchs_visiteuse',
+        on_delete=models.CASCADE,
+    )
+    date = models.DateField()
+    
+    score = models.CharField(null=True)
+    
+    def __str__(self):
+        return f"{self.domicile.nom} : {self.score}"
+    
+    
+    
